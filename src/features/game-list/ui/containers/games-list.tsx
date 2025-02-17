@@ -1,10 +1,9 @@
 import { getIdleGames } from '@/entities/game/server';
 import { Card, CardContent, CardHeader, CardTitle } from '@/shared/ui/card';
+import { Button } from '@/shared/ui/button';
 
 export async function GamesList() {
   const games = await getIdleGames();
-
-  console.log(games);
 
   return (
     <div className="grid grid-cols-2 gap-4">
@@ -15,6 +14,7 @@ export async function GamesList() {
               <CardTitle>Games with: {game.creator.login}</CardTitle>
             </CardHeader>
             <CardContent>Rating: {game.creator.rating}</CardContent>
+            <Button>Add</Button>
           </Card>
         );
       })}
