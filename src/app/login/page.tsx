@@ -4,6 +4,7 @@ import React, { useEffect } from 'react';
 import { useMsal } from "@azure/msal-react";
 import { Button } from '@/shared/ui/button';
 import { useRouter } from 'next/navigation';
+import { loginRequest } from '@/config/authConfig';
 
 export default function Page(): React.ReactElement {
   const { instance, accounts } = useMsal();
@@ -17,13 +18,13 @@ export default function Page(): React.ReactElement {
 
   const handleLogin = () => {
     instance.loginRedirect({
-      scopes: ["User.Read"],
+      scopes: loginRequest.scopes,
     });
   };
 
   return (
     <div>
-      <Button onClick={handleLogin}>Войти через Azure</Button>
+      <Button onClick={handleLogin}>Enter through Azure</Button>
     </div>
   );
 }

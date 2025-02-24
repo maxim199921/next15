@@ -7,6 +7,11 @@ export const msalConfig: Configuration = {
     redirectUri: "http://localhost:3000/profile", // URL, на который будет перенаправлен пользователь после успешной аутентификации
   },
   cache: {
-    cacheLocation: "sessionStorage",
+    cacheLocation: "sessionStorage", // нада указать чтоб писал туда токены
   },
+};
+
+
+export const loginRequest = {
+  scopes: ["User.Read"], // Добавить нужные scopes, включая роли, если нужно
 };

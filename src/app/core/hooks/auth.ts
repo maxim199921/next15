@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useIsAuthenticated, useMsal } from '@azure/msal-react';
 import { useRouter } from 'next/navigation';
+import { InteractionStatus } from '@azure/msal-browser';
 
 const useAuth = () => {
   const isAuthenticated = useIsAuthenticated();
@@ -9,7 +10,7 @@ const useAuth = () => {
   const [isCheckingAuth, setIsCheckingAuth] = useState(true);
 
   useEffect(() => {
-    if (inProgress === 'none') {
+    if (inProgress === InteractionStatus.None) {
       setIsCheckingAuth(false);
 
       if (!isAuthenticated) {
